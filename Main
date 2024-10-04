@@ -1,15 +1,9 @@
-local sitinklib = loadstring(game:HttpGet("https://github.com/ErutTheTeru/uilibrary/blob/main/Sitink%20Lib/Source.lua?raw=true"))()
-
-local sitinkgui = sitinklib:Start({
-    ["Name"] = "sitink hub",
-    ["Description"] = "- from R's UI",
-    ["Info Color"] = Color3.fromRGB(5.000000176951289, 59.00000028312206, 113.00000086426735),
-    ["Logo Info"] = "rbxassetid://18243105495",
-    ["Logo Player"] = "rbxassetid://18243105495",
-    ["Name Info"] = "sitink Hub Info",
-    ["Name Player"] = "ruteteru",
-    ["Info Description"] = "discord.gg/3Aatp4Nhjp",
-    ["Tab Width"] = 135,
-    ["Color"] = Color3.fromRGB(127.00000002980232, 146.00000649690628, 242.00000077486038),
-    ["CloseCallBack"] = function() end
+local FlurioreLib = loadstring(game:HttpGet("https://github.com/ErutTheTeru/uilibrary/blob/main/Fluriore%20Lib/Source.lua?raw=true"))()
+local FlurioreGui = FlurioreLib:MakeGui({
+	["NameHub"] = "Fluriore UI",
+	["Description"] = "made by Teru",
+	["Color"] = Color3.fromRGB(255, 0, 255),
+	["Logo Player"] = "https://www.roblox.com/headshot-thumbnail/image?userId="..game:GetService("Players").LocalPlayer.UserId .."&width=420&height=420&format=png",
+	["Name Player"] = tostring(game:GetService("Players").LocalPlayer.Name),
+	["Tab Width"] = 120
 })
