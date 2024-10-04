@@ -1,0 +1,9 @@
+local FlurioreLib = loadstring(game:HttpGet("https://github.com/ErutTheTeru/uilibrary/blob/main/Fluriore%20Lib/Source.lua?raw=true"))()
+local FlurioreGui = FlurioreLib:MakeGui({
+	["NameHub"] = "Fluriore UI",
+	["Description"] = "made by Teru",
+	["Color"] = Color3.fromRGB(255, 0, 255),
+	["Logo Player"] = "https://www.roblox.com/headshot-thumbnail/image?userId="..game:GetService("Players").LocalPlayer.UserId .."&width=420&height=420&format=png",
+	["Name Player"] = tostring(game:GetService("Players").LocalPlayer.Name),
+	["Tab Width"] = 120
+})
