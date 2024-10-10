@@ -1,0 +1,73 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "SEA EVENT", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+local SE = Window:MakeTab({
+	Name = "Kisune Island",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = SE:AddSection({
+	Name = "Kisune Insland"
+})
+
+SE:AddToggle({
+	Name = "Auto Collect Azure",
+	Default = false,
+	Callback = function(Value)
+		_G.CollectAzure = Value
+	end    
+})
+
+spawn(function()
+    while wait() do
+        if _G.CollectAzure then
+            pcall(function()
+                if game:GetService("Workspace"):FindFirstChild("AttachedAzureEmber") then
+                    fastpos(game:GetService("Workspace"):WaitForChild("EmberTemplate"):FindFirstChild("Part").CFrame)
+                end
+            end)
+        end
+    end
+end)
+
+SE:AddToggle({
+	Name = "Teleport To Kitsune Island",
+	Default = false,
+	Callback = function(v)
+		_G.TeleportKitsune = v
+	end    
+})
+
+spawn(function()
+    while wait() do
+        if _G.TeleportKitsune then
+            if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+                topos(game.Workspace.Map.KitsuneIsland.ShrineActive.NeonShrinePart.CFrame * CFrame.new(0,0,10))
+            end
+        end
+    end
+end)
+
+Tab:AddToggle({
+	Name = "Auto Trade Azure",
+	Default = false,
+	Callback = function(n)
+		_G.TradeAureEmber = n
+	end    
+})
+
+spawn(function()
+    while wait() do
+        if _G.TradeAureEmber then
+            pcall(function()
+                local AzureAvilable = GetCountMaterials("Azure Ember")
+                if AzureAvilable >= _G.SetToTradeAureEmber then
+                    game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/KitsuneStatuePray"):InvokeServer()
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KitsuneStatuePray")
+                end
+            end)
+        end
+    end
+end)
