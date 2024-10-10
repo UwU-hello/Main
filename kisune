@@ -50,7 +50,7 @@ spawn(function()
     end
 end)
 
-Tab:AddToggle({
+SE:AddToggle({
 	Name = "Auto Trade Azure",
 	Default = false,
 	Callback = function(n)
