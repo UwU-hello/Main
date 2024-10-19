@@ -1,0 +1,28 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+local M = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+M:AddToggle({
+	Name = "test toggle",
+	Default = false,
+	Callback = function(Value)
+		_G.CakePrince = Value
+	end    
+})
+
+spawn(function()
+    while wait(0.1) do
+        if _G.CakePrince then
+            print("Auto Farm đang chạy")  -- Kiểm tra xem vòng lặp có chạy khi bật toggle
+            pcall(function()
+                -- Phần còn lại của code
+            end)
+        end
+    end
+end)
